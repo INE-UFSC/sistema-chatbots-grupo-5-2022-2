@@ -58,7 +58,7 @@ class SistemaChatBot:
         if entrada == -1: # Sai do loop de seleção de comandos
             self.__bot = None
             return
-        self.__bot.executa_comando(entrada)
+        print(self.__bot.executa_comando(entrada))
 
     def inicio(self):
         ##mostra mensagem de boas-vindas do sistema
