@@ -16,8 +16,8 @@ class Bot(ABC):
 
     def mostra_comandos(self):
         texto = 'Digite o comando desejado (ou -1 fechar o programa sair): '
-        for i, comando in enumerate(self.__comandos):
-            texto += f'\n{i + 1} - {comando}'
+        for i,  key in enumerate(self.__comandos):
+            texto += f'\n{i + 1} - {self.__comandos[key]}'
         return texto
 
     @abstractmethod
