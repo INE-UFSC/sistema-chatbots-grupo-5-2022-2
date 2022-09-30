@@ -2,9 +2,9 @@ from abc import ABC, abstractmethod
 
 
 class Bot(ABC):
-    def __init__(self, nome):
+    def __init__(self, nome, comandos):
         self.__nome = nome
-        self.__comandos = {}
+        self.__comandos = comandos
 
     @property
     def nome(self) -> str:
