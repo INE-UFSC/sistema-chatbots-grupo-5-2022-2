@@ -19,7 +19,7 @@ class SistemaChatBot:
         print("Digite -1 para sair do sistema")
         print("Os bots disponíveis são: ")
         for i, bot in enumerate(self.__lista_bots):
-            print(str(i) + " - " + bot.nome() + ": " + bot.boas_vindas())
+            print(str(i) + " - " + bot.nome + ": " + bot.boas_vindas())
 
     def escolhe_bot(self):
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
@@ -43,7 +43,7 @@ class SistemaChatBot:
     def mostra_comandos_bot(self):
         ##mostra os comandos disponíveis no bot escolhido
         print("Digite -1 para ir para a seleção de bots")
-        print("Comandos do " + self.__bot.nome())
+        print("Comandos do " + self.__bot.nome)
         print(self.__bot.mostra_comandos())
 
     def le_envia_comando(self):
