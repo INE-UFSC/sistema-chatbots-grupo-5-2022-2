@@ -14,6 +14,10 @@ class Bot(ABC):
     def nome(self, nome):
         self.__nome = nome
 
+    @property
+    def comandos(self):
+        return self.__comandos
+
     def mostra_comandos(self):
         texto = 'Digite o comando desejado (ou -1 fechar o programa sair): '
         for i,  key in enumerate(self.__comandos):
