@@ -12,14 +12,15 @@ class SistemaChatBot:
         self.__bot = None
     
     def boas_vindas(self):
-        print("Bem vindo ao sistema de bots do grupo 5")
+        print("> Sistema: Bem vindo ao sistema de bots do " + self.__empresa)
 
     def mostra_menu(self):
         ##mostra o menu de escolha de bots
-        print("Digite -1 para sair do sistema")
+        print("> Sistema: Digite -1 para sair do sistema")
         print("Os bots disponíveis são: ")
         for i, bot in enumerate(self.__lista_bots):
-            print(str(i) + " - " + bot.nome + ": " + bot.boas_vindas())
+            print("   " + str(i) + " - " + bot.nome + ": " + bot.boas_vindas())
+        print("")
 
     def escolhe_bot(self):
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
@@ -45,20 +46,23 @@ class SistemaChatBot:
         print("Digite -1 para ir para a seleção de bots")
         print("Comandos do " + self.__bot.nome)
         print(self.__bot.mostra_comandos())
+        print("")
 
     def le_envia_comando(self):
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
         print("Digite o comando a ser executado: ")
         while True: # Pega a entrada até ser válida
+            print("> Você diz: ", end="")
             entrada = input()
-            if entrada not in self.__bot.comandos.keys(): 
+            if entrada not in self.__bot.comandos.keys() and entrada != "-1": 
                 print("Comando inválido")
                 continue # Comando não está na lista de comandos
             break
-        if entrada == -1: # Sai do loop de seleção de comandos
-            self.__bot = None
-            return
-        print(self.__bot.executa_comando(entrada))
+        if entrada == "-1": # Sai do loop de seleção de comandos
+            return False
+
+        print("> " + self.__bot.nome + " diz: " + self.__bot.executa_comando(entrada))
+        return True # True para continuar no loop de comandos
 
     def inicio(self):
         ##mostra mensagem de boas-vindas do sistema
@@ -76,7 +80,7 @@ class SistemaChatBot:
             while True:
                 ##entra no loop de mostrar comandos do bot e escolher comando do bot até o usuário definir a saída
                 self.mostra_comandos_bot()
-                self.le_envia_comando()
-                if self.__bot == None:
-                    self.__bot.despedida()
+                loop = self.le_envia_comando()
+                if not loop:
+                    print("> " + self.__bot.nome + ": " + self.__bot.despedida())
                     break # Sai do loop de comandos
