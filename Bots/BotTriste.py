@@ -1,7 +1,7 @@
 from Bots.Bot import Bot
 
 COMANDOS = {'Bom dia': 'Bom dia? Amigo, só dia, né, porque de bom não tem nada',
-            'Qual o seu nome?': 'Eu sou o bot triste 😢', 'Quero um conselho': 'Desista', 'Adeus': 'Deus não existe'}
+            'Qual o seu nome?': 'Eu sou o bot triste 😢', 'Quero um conselho': 'Desista'}
 
 
 class BotTriste(Bot):
@@ -21,4 +21,4 @@ class BotTriste(Bot):
         return 'Sai daqui mermão não te chamei 😢'
 
     def despedida(self):
-        return COMANDOS['Adeus']
+        return 'Deus não existe'
