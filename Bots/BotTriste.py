@@ -6,10 +6,7 @@ COMANDOS = {'Bom dia': 'Bom dia? Amigo, só dia, né, porque de bom não tem nad
 
 class BotTriste(Bot):
     def __init__(self):
-        dict_comandos = dict()
-        for i, comando in enumerate(COMANDOS):
-            dict_comandos.update({str(i + 1): comando})
-        super().__init__('Bot Triste', dict_comandos)
+        super().__init__('Bot Triste', COMANDOS)
 
     def executa_comando(self, cmd):
         try:

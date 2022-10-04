@@ -1,20 +1,17 @@
 from Bots.Bot import Bot
 
-Comandos = {'Bom dia': 'Que bom dia oque nem falei com você', 'Qual seu nome': 'Sou o bot zangado e poderia ir embora!',
+COMANDOS = {'Bom dia': 'Que bom dia oque nem falei com você', 'Qual seu nome': 'Sou o bot zangado e poderia ir embora!',
             'Quero um conselho':
                 'Não incomode as pessoas!'}
 
 
 class BotZangado(Bot):
     def __init__(self):
-        dict_comandos = dict()
-        for i, comando in enumerate(Comandos):
-            dict_comandos.update({str(i + 1): comando})
-        super().__init__('Bot Zangado', dict_comandos)
+        super().__init__('Bot Zangado', COMANDOS)
 
     def executa_comando(self, cmd):
         try:
-            return Comandos[list(Comandos)[int(cmd) - 1]]
+            return COMANDOS[list(COMANDOS)[int(cmd) - 1]]
         except(ValueError, KeyError):
             return 'Oque você tá falando? para de incomodar'
 

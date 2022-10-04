@@ -4,7 +4,9 @@ from abc import ABC, abstractmethod
 class Bot(ABC):
     def __init__(self, nome, comandos):
         self.__nome = nome
-        self.__comandos = comandos
+        self.__comandos = dict()
+        for i, comando in enumerate(comandos):
+            self.__comandos.update({str(i + 1): comando})
 
     @property
     def nome(self) -> str:
