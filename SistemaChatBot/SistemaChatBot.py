@@ -28,12 +28,12 @@ class SistemaChatBot:
 
         while True: # Pega a entrada até ser válida
             try:
-                print("Digite o número do bot escolhido: ")
+                print("Digite o número do bot escolhido: ", end="")
                 entrada = int(input())
                 if not -1 <= entrada < n_bots: 
                     raise ValueError # Erro no valor de entrada
             except ValueError:
-                print("Entrada inválida")
+                print("Entrada inválida\n")
                 continue
             break
         if entrada == -1:
@@ -43,7 +43,7 @@ class SistemaChatBot:
 
     def mostra_comandos_bot(self):
         ##mostra os comandos disponíveis no bot escolhido
-        print("Digite -1 para ir para a seleção de bots")
+        print("\nDigite -1 para ir para a seleção de bots")
         print("Comandos do " + self.__bot.nome)
         print(self.__bot.mostra_comandos())
         print("")
@@ -55,7 +55,7 @@ class SistemaChatBot:
             print("> Você diz: ", end="")
             entrada = input()
             if entrada not in self.__bot.comandos.keys() and entrada != "-1": 
-                print("Comando inválido")
+                print("Comando inválido\n")
                 continue # Comando não está na lista de comandos
             break
         if entrada == "-1": # Sai do loop de seleção de comandos
